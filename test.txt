@@ -1,2 +1,38 @@
-hello world!
-my name is....
+#!/usr/bin/env python3
+import logging
+import time
+import random
+
+#configure the logging
+logging.basicConfig(
+    filename = "custom.log",
+    level = logging.INFO,
+    format = " %(asctime)s - %(levelname)s - %(message)s"
+)
+#sample messages and levels
+log_messages = [
+    ("This is an info log message.", logging.INFO),
+    ("This is a debug log message.", logging.DEBUG),
+    ("This is a warning log message.", logging.WARNING),
+    ("This is an error log message.", logging.ERROR),
+    ("This is a critical log message.", logging.CRITICAL)
+]
+#generate logs at random intervals
+while True:
+    #select a random message
+    message, level = random.choice(log_messages)
+
+    #log the message
+    if level == logging.INFO:
+        logging.info(message)
+    if level == logging.DEBUG:
+        logging.debug(message)
+    if level == logging.WARNING:
+        logging.warning(message)
+    if level == logging.ERROR:
+        logging.error(message)
+    if level == logging.CRITICAL:
+        logging.critical(message)
+
+    # Wait for a random time (1 to 10 seconds)
+    time.sleep(random.uniform(1,10))
