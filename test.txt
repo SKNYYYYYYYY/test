@@ -2,6 +2,7 @@
 import logging
 import time
 import random
+import random
 
 #configure the logging
 logging.basicConfig(
